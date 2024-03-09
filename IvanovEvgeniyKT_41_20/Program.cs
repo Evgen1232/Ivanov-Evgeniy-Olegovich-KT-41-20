@@ -2,6 +2,7 @@ using NLog;
 using NLog.Web;
 using IvanovEvgeniyKT_41_20.Database;
 using Microsoft.EntityFrameworkCore;
+using IvanovEvgeniyKT_41_20.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ try
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
     builder.Services.AddDbContext<IvanovDbContext>(options =>
         options.UseSqlServer(connectionString));
+
+    builder.Services.AddServices();
 
     var app = builder.Build();
 
