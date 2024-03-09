@@ -14,7 +14,8 @@ namespace IvanovEvgeniyKT_41_20.Database
             // Конфигурации к таблицам
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
-
+            modelBuilder.ApplyConfiguration(new OtsenkaConfiguration());
+            modelBuilder.ApplyConfiguration(new SubjectConfiguration());
         }
 
         public IvanovDbContext(DbContextOptions<IvanovDbContext> options) : base(options)
